@@ -61,6 +61,7 @@ const config = {
             position: 'left',
             label: 'Tutorials',
           },
+          {to: '/login', label: 'Login', position: 'right'},
           {
             href: 'https://github.com/adnankhan112/codenest',
             label: 'GitHub',
@@ -77,13 +78,11 @@ const config = {
               {label: 'HTML', to: '/docs/html/intro'},
               {label: 'CSS', to: '/docs/css/intro'},
               {label: 'JavaScript', to: '/docs/javascript/intro'},
-              {label: 'Python', to: '/docs/python/intro'},
             ],
           },
           {
             title: 'More',
             items: [
-              {label: 'SQL', to: '/docs/sql/intro'},
               {label: 'PHP', to: '/docs/php/intro'},
               {label: 'Node.js', to: '/docs/nodejs/intro'},
             ],
