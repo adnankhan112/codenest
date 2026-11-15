@@ -8,11 +8,14 @@ import Head from '@docusaurus/Head';
 // in 4 values ko copy karke yahan 'YAHAN_PASTE_KAREIN' ki jagah daalein.
 // ======================================================================
 const firebaseConfig = {
-  apiKey: 'YAHAN_PASTE_KAREIN',
-  authDomain: 'YAHAN_PASTE_KAREIN',
-  projectId: 'YAHAN_PASTE_KAREIN',
-  appId: 'YAHAN_PASTE_KAREIN',
+  apiKey: "AIzaSyBvq18LrwL-AfL_V2IsoE_fVS5J2QV92Q8",
+  authDomain: "codenest-4a91a.firebaseapp.com",
+  projectId: "codenest-4a91a",
+  storageBucket: "codenest-4a91a.firebasestorage.app",
+  messagingSenderId: "389667673464",
+  appId: "1:389667673464:web:2c24680059cfb11e1b248d"
 };
+
 
 const configReady = !Object.values(firebaseConfig).some((v) =>
   v.includes('YAHAN'),
