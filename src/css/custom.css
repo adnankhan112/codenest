@@ -28,3 +28,36 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+/* Previous / Next buttons */
+.pagination-nav__link {
+  height: auto;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: linear-gradient(to right, #185c5a, #22a49d);
+  transition: all 0.25s ease;
+}
+
+.pagination-nav__link--prev {
+  justify-self: start;
+}
+
+.pagination-nav__link--next {
+  justify-self: end;
+}
+
+.pagination-nav__link:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 16px rgba(34, 164, 157, 0.4);
+  transform: translateY(-2px);
+}
+
+.pagination-nav__sublabel {
+  display: none;
+}
+
+.pagination-nav__label {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
