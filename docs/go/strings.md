@@ -7,7 +7,7 @@ sidebar_position: 14
 
 ## Theory
 
-A **string** is a read-only list of bytes. Go text uses **UTF-8**, so one letter can use more than one byte (for example Urdu letters).
+A **string** is a read-only list of bytes. Go text uses **UTF-8**, so one letter can use more than one byte (for example Chinese, Arabic or Urdu letters).
 
 A **rune** is one real character. Use `[]rune(text)` when you need to work with characters, not bytes.
 
@@ -35,10 +35,10 @@ func main() {
     fmt.Println(strings.TrimSpace("  hi  "))
     fmt.Println(strings.HasPrefix(s, "He"))
 
-    for i, r := range "اردو" {
+    for i, r := range "你好" {
         fmt.Println(i, string(r))
     }
-    fmt.Println(len("اردو"), len([]rune("اردو")))   // 8 bytes, 4 characters
+    fmt.Println(len("你好"), len([]rune("你好")))   // 6 bytes, 2 characters
 
     var sb strings.Builder
     sb.WriteString("fast ")

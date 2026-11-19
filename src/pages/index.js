@@ -19,7 +19,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-          to="/docs/html/intro">
+            to="/docs/html/intro">
             Start Learning Free
           </Link>
         </div>
@@ -32,8 +32,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title="Learn Programming for Free"
+      description="CodeNest offers free, easy-to-follow programming tutorials for HTML, CSS, JavaScript, Python, C, C++, SQL and more, with practice questions.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

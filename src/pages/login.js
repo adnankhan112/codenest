@@ -4,8 +4,8 @@ import Head from '@docusaurus/Head';
 
 // ======================================================================
 // FIREBASE CONFIG
-// Firebase console -> Project settings -> Your apps -> Web app se
-// in 4 values ko copy karke yahan 'YAHAN_PASTE_KAREIN' ki jagah daalein.
+// Firebase console -> Project settings -> Your apps -> Web app.
+// Copy the values from there and paste them below.
 // ======================================================================
 const firebaseConfig = {
   apiKey: "AIzaSyBvq18LrwL-AfL_V2IsoE_fVS5J2QV92Q8",
@@ -24,22 +24,22 @@ const configReady = !Object.values(firebaseConfig).some((v) =>
 function friendlyError(e) {
   const map = {
     'auth/email-already-in-use':
-      'Yeh email pehle se registered hai. Sign in karein.',
-    'auth/invalid-email': 'Email sahi nahi hai.',
-    'auth/weak-password': 'Password kam az kam 6 huroof ka hona chahiye.',
-    'auth/invalid-credential': 'Email ya password galat hai.',
-    'auth/user-not-found': 'Is email ka koi account nahi mila.',
-    'auth/wrong-password': 'Password galat hai.',
+      'This email address is already registered. Please sign in.',
+    'auth/invalid-email': 'Please enter a valid email address.',
+    'auth/weak-password': 'Your password must be at least 6 characters long.',
+    'auth/invalid-credential': 'The email address or password is incorrect.',
+    'auth/user-not-found': 'No account was found with this email address.',
+    'auth/wrong-password': 'The password you entered is incorrect.',
     'auth/too-many-requests':
-      'Bohat zyada koshishein ho gayin. Thori der baad try karein.',
-    'auth/popup-closed-by-user': 'Google ka window band ho gaya.',
+      'Too many attempts. Please try again later.',
+    'auth/popup-closed-by-user': 'Google sign-in was cancelled. Please try again.',
     'auth/operation-not-allowed':
-      'Firebase console mein yeh sign-in method abhi chalu nahi kiya gaya.',
+      'This sign-in method is not enabled. Please enable it in your Firebase project settings.',
     'auth/unauthorized-domain':
-      'Yeh domain Firebase ke Authorized domains mein add nahi hai.',
-    'auth/network-request-failed': 'Internet ka masla hai. Dobara try karein.',
+      'This domain is not authorized for sign-in. Please add it to the Authorized domains list in Firebase.',
+    'auth/network-request-failed': 'Unable to connect. Please check your internet connection and try again.',
   };
-  return (e && map[e.code]) || 'Kuch masla aa gaya. Dobara try karein.';
+  return (e && map[e.code]) || 'Something went wrong. Please try again.'
 }
 
 const css = `
@@ -110,7 +110,7 @@ const css = `
 `;
 
 export default function Login() {
-  // Video ki tarah pehle "Create Account" nazar aata hai
+  // Show "Create Account" first, like in the reference video
   const [signUpMode, setSignUpMode] = useState(true);
   const [name, setName] = useState('');
   const [suEmail, setSuEmail] = useState('');
@@ -125,12 +125,12 @@ export default function Login() {
     setMsg(null);
   };
 
-  // Firebase sirf tab load hota hai jab user button dabaye
+  // Firebase loads only when the user clicks a button
   async function withAuth(task) {
     if (!configReady) {
       setMsg({
         type: 'err',
-        text: 'Firebase config abhi nahi bhari. login.js ke upar firebaseConfig mein apni values paste karein.',
+        text: 'Firebase config is not filled in yet. Please paste your values into firebaseConfig at the top of login.js.',
       });
       return;
     }
@@ -162,7 +162,7 @@ export default function Login() {
       if (name.trim()) {
         await m.updateProfile(cred.user, {displayName: name.trim()});
       }
-      return 'Account ban gaya! Khush aamdeed.';
+      return 'Welcome to CodeNest! Your account has been created.';
     });
   };
 
@@ -170,7 +170,7 @@ export default function Login() {
     e.preventDefault();
     withAuth(async (auth, m) => {
       await m.signInWithEmailAndPassword(auth, siEmail, siPassword);
-      return 'Login ho gaya!';
+      return 'Login successful!';
     });
   };
 
@@ -178,29 +178,29 @@ export default function Login() {
     if (!siEmail) {
       setMsg({
         type: 'err',
-        text: 'Pehle apni email likhein, phir "Forgot your password?" dabayein.',
+        text: 'Please enter your email address first, then click "Forgot your password?".',
       });
       return;
     }
     withAuth(async (auth, m) => {
       await m.sendPasswordResetEmail(auth, siEmail);
-      return 'Password reset ki email bhej di gayi hai.';
+      return 'A password reset email has been sent.';
     });
   };
 
   const handleGoogle = () =>
     withAuth(async (auth, m) => {
       await m.signInWithPopup(auth, new m.GoogleAuthProvider());
-      return 'Google se login ho gaya!';
+      return 'Logged in with Google successfully!';
     });
 
   const comingSoon = () =>
     setMsg({
       type: 'err',
-      text: 'Yeh option abhi available nahi hai. Google ya email istemal karein.',
+      text: 'This option is not available yet. Please use Google or email to sign in.'
     });
 
-  // Jo form nazar nahi aa raha, uske fields par Tab na ruke
+  // Keep Tab from stopping on the fields of the form that is not visible
   const tabSignUp = signUpMode ? 0 : -1;
   const tabSignIn = signUpMode ? -1 : 0;
 
@@ -214,7 +214,7 @@ export default function Login() {
     ) : null;
 
   return (
-    <Layout title="Login" description="CodeNest account mein login ya sign up karein">
+    <Layout title="Login" description="Log in or sign up to your CodeNest account">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -243,7 +243,7 @@ export default function Login() {
               <button className="cn-btn" type="submit" disabled={busy} tabIndex={tabSignUp}>Sign Up</button>
               {signUpMode && renderMsg()}
               <p className="cn-switch-mobile">
-                Account hai?{' '}
+                Already have an account?{' '}
                 <button type="button" className="cn-link" onClick={() => switchMode(false)}>Sign in</button>
               </p>
             </form>
@@ -265,7 +265,7 @@ export default function Login() {
               <button className="cn-btn" type="submit" disabled={busy} tabIndex={tabSignIn}>Sign In</button>
               {!signUpMode && renderMsg()}
               <p className="cn-switch-mobile">
-                Account nahi hai?{' '}
+                Don't have an account?{' '}
                 <button type="button" className="cn-link" onClick={() => switchMode(true)}>Sign up</button>
               </p>
             </form>
