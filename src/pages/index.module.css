@@ -21,3 +21,12 @@
   align-items: center;
   justify-content: center;
 }
+.heroBanner {
+  background: linear-gradient(to right, #185c5a, #22a49d) !important;
+  color: #ffffff !important;
+}
+
+.heroBanner :global(.hero__title),
+.heroBanner :global(.hero__subtitle) {
+  color: #ffffff !important;
+}
