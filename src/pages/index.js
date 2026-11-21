@@ -5,11 +5,8 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-// ----------------------------------------------------------------------
-// TUTORIALS
 // To open a tutorial card, put its page address in "to".
 // A card with to: null shows "Coming soon" and is not a link.
-// ----------------------------------------------------------------------
 const tutorials = [
   {name: 'HTML', text: 'Web structure', to: '/docs/html/intro'},
   {name: 'CSS', text: 'Design and layout', to: '/docs/css/modern-css'},
@@ -45,17 +42,18 @@ export default function Home() {
       description="CodeNest offers free, easy-to-follow programming tutorials for HTML, CSS, JavaScript, Python, C, C++ and more, with practice questions.">
       <main className={styles.page}>
         <div className="container">
+          <span className={styles.brand}>CODENEST</span>
           <Heading as="h1" className={styles.title}>
-            Code your future.
+            Code your future
           </Heading>
           <p className={styles.subtitle}>
             Free programming tutorials with exercises and quizzes.
           </p>
-          <div className={styles.term}>Learn Programming Languages</div>
-          <div>
-            <Link className={styles.btn} to="/docs/html/intro">
+          <div className={styles.buttons}>
+            <Link className={clsx(styles.btn, styles.primary)} to="/docs/html/intro">
               Start Learning Free
             </Link>
+            <div className={styles.btn}>Learn Programming Languages</div>
           </div>
 
           <div className={styles.grid}>

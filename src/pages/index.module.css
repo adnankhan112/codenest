@@ -1,131 +1,19 @@
-/**
- * CodeNest homepage: dark developer theme with glow.
- * This file replaces the old index.module.css.
- */
-
-.page {
-  padding: clamp(2.5rem, 7vw, 5rem) 1rem 4rem;
-  text-align: center;
-  color: #e8f3f2;
-  background-color: #0b1f1e;
-}
-
-.title {
-  margin-bottom: 0.75rem;
-  font-size: clamp(2.5rem, 7vw, 4rem);
-  background: linear-gradient(to right, #22a49d, #9ee6e0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.subtitle {
-  max-width: 40rem;
-  margin: 0 auto 1.25rem;
-  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-  color: #e8f3f2;
-}
-
-.term {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  padding: 0.6rem 1.25rem;
-  border: 1px solid #22a49d;
-  border-radius: 8px;
-  font-family: var(--ifm-font-family-monospace);
-  color: #7fd6d0;
-  background-color: rgba(34, 164, 157, 0.08);
-}
-
-.btn {
-  display: inline-block;
-  min-height: 44px;
-  padding: 0.75rem 1.75rem;
-  border-radius: 999px;
-  background-color: #22a49d;
-  color: #04211f !important;
-  font-weight: 700;
-  text-decoration: none !important;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(34, 164, 157, 0.6);
-}
-
-.btn:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1rem;
-  max-width: 960px;
-  margin: 3rem auto 0;
-  text-align: left;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid #1f5a57;
-  border-radius: 12px;
-  background-color: #102a29;
-  color: #e8f3f2 !important;
-  text-decoration: none !important;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.cardLink:hover {
-  transform: translateY(-3px);
-  border-color: #22a49d;
-  box-shadow: 0 0 18px rgba(34, 164, 157, 0.6);
-}
-
-.cardLink:focus-visible {
-  outline: 3px solid #ffbf47;
-  outline-offset: 3px;
-}
-
-.cardSoon {
-  border-style: dashed;
-}
-
-.cardName {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #7fd6d0;
-}
-
-.cardText {
-  color: #e8f3f2;
-}
-
-.soon {
-  margin-top: 0.25rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #9fc9c5;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn,
-  .card {
-    transition: none;
-  }
-
-  .btn:hover,
-  .cardLink:hover {
-    transform: none;
-  }
-}
+.page{min-height:480px;padding:64px 0;text-align:center;background:#021f1f;color:#e6fffd;border-bottom:2px solid #0e5753}
+.brand{display:inline-block;font:800 20px/1 monospace;letter-spacing:.22em;color:#3dd6cc;margin-bottom:14px}
+.title{margin:0 0 12px;font-size:clamp(28px,4.5vw,44px);color:#14b8b0;line-height:1.1}
+.subtitle{margin:0 0 24px;font-size:clamp(16px,2.2vw,20px);color:#e6fffd}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.btn,.card{transition:box-shadow .3s,background-color .3s,border-color .3s,color .3s,transform .3s}
+.btn{padding:12px 24px;border-radius:99px;font-weight:700;text-decoration:none;border:1px solid #14b8b0;color:#3dd6cc;cursor:pointer}
+.btn:hover{background-color:#14b8b022;box-shadow:0 0 18px #14b8b066,0 0 3px #14b8b0;color:#3dd6cc;text-decoration:none}
+.primary{background:#14b8b0;color:#012}
+.primary:hover{background-color:#27d3cb;box-shadow:0 0 22px #14b8b088;color:#012}
+.grid{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:14px 20px;background:#ffffff0d;border:1px solid #ffffff22;border-radius:26px;backdrop-filter:blur(10px)}
+.card{display:flex;flex-direction:column;gap:4px;min-width:130px;padding:14px 18px;border-radius:12px;background:#14b8b014;text-decoration:none}
+.cardName{font-weight:700;font-size:15px;color:#3dd6cc}
+.cardText{font-size:13px;color:#e6fffd}
+.soon{font-size:11px;font-weight:600;color:#3dd6cc;opacity:.8}
+.cardLink{cursor:pointer}
+.cardLink:hover{transform:translateY(-8px) scale(1.06);box-shadow:0 0 16px #14b8b055;background-color:#0a403d;text-decoration:none}
+.cardSoon{border:1px dashed #0e5753;opacity:.75}
+.cardSoon:hover{box-shadow:0 0 12px #14b8b033;border-color:#14b8b0}
