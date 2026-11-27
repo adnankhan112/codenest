@@ -12,7 +12,8 @@ const tutorials = [
   {name: 'CSS', text: 'Design and layout', to: '/docs/css/modern-css'},
   {name: 'JavaScript', text: 'Interactivity', to: '/docs/javascript/intro'},
   {name: 'Python', text: 'Beginner friendly', to: '/docs/python/intro'},
-  {name: 'C and C++', text: 'Core skills', to: null},
+    {name: 'C', text: 'Fast and powerful', to: '/docs/c/intro'},
+  {name: 'C++', text: 'Object oriented', to: '/docs/cpp/modern-cpp'},
   {name: 'Java and Go', text: 'Modern apps', to: null},
 ];
 
